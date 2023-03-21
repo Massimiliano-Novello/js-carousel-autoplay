@@ -59,7 +59,8 @@ bottomBtn.addEventListener("click", function(){
     
 })
 
-let autoplay = setInterval(myCarousel, 3000);
+let autoplay = setInterval(myCarousel, 3000); 
+const sliderParent = document.querySelector(".slide");
 
 function myCarousel () {
     itemArrey[classActive].classList.remove("active");
@@ -74,10 +75,15 @@ function myCarousel () {
     
 }
 
-itemArrey.addEventListener("mouseover", stopAutoplay)
+sliderParent.addEventListener("mouseover", stopAutoplay);
+sliderParent.addEventListener("mouseout", startAutoplay)
+
 
 
 function stopAutoplay () {
     clearInterval(autoplay)
 }
 
+function startAutoplay () {
+    autoplay = setInterval(myCarousel, 3000)
+}
